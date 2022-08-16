@@ -32,8 +32,8 @@ object Read {
         .config("spark.hadoop.fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
 
     val spark = builder.getOrCreate()
-    val tablePath= "s3://dmetasoul-bucket/lakesoul/CCF/table_test"
+    val tablePath= "/home/huazeng/test/table/table_test"
     val table = LakeSoulTable.forPath(tablePath)
-    table.toDF.write.parquet("/opt/spark/work-dir/result/")
+    table.toDF.write.parquet("/home/huazeng/test/result")
   }
 }

@@ -38,8 +38,8 @@ object Write {
 
     // tablePath: local test can use local path
 
-    val dataPath0 = "/home/huazeng/parquet/base-0.parquet"
-    val tablePath = "/home/huazeng/table/table_test"
+    val dataPath0 = "/home/huazeng/test/parquet/base-0.parquet"
+    val tablePath = "/home/huazeng/test/table/table_test"
     val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
     df.write.format("lakesoul").mode("Overwrite").save(tablePath)
 

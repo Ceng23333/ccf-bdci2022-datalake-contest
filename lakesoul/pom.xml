@@ -40,7 +40,6 @@
             <groupId>com.dmetasoul</groupId>
             <artifactId>lakesoul-spark</artifactId>
             <version>2.1.0-lakesoul-spark-3.1.2-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.dmetasoul</groupId>
