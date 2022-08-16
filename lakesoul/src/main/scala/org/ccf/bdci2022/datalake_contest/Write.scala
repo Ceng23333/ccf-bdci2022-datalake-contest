@@ -38,32 +38,11 @@ object Write {
 
     // tablePath: local test can use local path
 
-    val dataPath0 = "s3://dmetasoul-bucket/lakesoul/CCF/base-0.parquet"
-    val dataPath1 = "s3://dmetasoul-bucket/lakesoul/CCF/base-1.parquet"
-    val dataPath2 = "s3://dmetasoul-bucket/lakesoul/CCF/base-2.parquet"
-    val dataPath3 = "s3://dmetasoul-bucket/lakesoul/CCF/base-3.parquet"
-    val dataPath4 = "s3://dmetasoul-bucket/lakesoul/CCF/base-4.parquet"
-    val dataPath5 = "s3://dmetasoul-bucket/lakesoul/CCF/base-5.parquet"
-    val dataPath6 = "s3://dmetasoul-bucket/lakesoul/CCF/base-6.parquet"
-    val dataPath7 = "s3://dmetasoul-bucket/lakesoul/CCF/base-7.parquet"
-    val dataPath8 = "s3://dmetasoul-bucket/lakesoul/CCF/base-8.parquet"
-    val dataPath9 = "s3://dmetasoul-bucket/lakesoul/CCF/base-9.parquet"
-    val dataPath10 = "s3://dmetasoul-bucket/lakesoul/CCF/base-10.parquet"
-
-    val tablePath = "s3://dmetasoul-bucket/lakesoul/CCF/table_test"
+    val dataPath0 = "/home/huazeng/parquet/base-0.parquet"
+    val tablePath = "/home/huazeng/table/table_test"
     val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
     df.write.format("lakesoul").mode("Overwrite").save(tablePath)
 
-    overWriteTable(spark, tablePath, dataPath1)
-    overWriteTable(spark, tablePath, dataPath2)
-    overWriteTable(spark, tablePath, dataPath3)
-    overWriteTable(spark, tablePath, dataPath4)
-    overWriteTable(spark, tablePath, dataPath5)
-    overWriteTable(spark, tablePath, dataPath6)
-    overWriteTable(spark, tablePath, dataPath7)
-    overWriteTable(spark, tablePath, dataPath8)
-    overWriteTable(spark, tablePath, dataPath9)
-    overWriteTable(spark, tablePath, dataPath10)
   }
 
   def overWriteTable(spark: SparkSession, tablePath: String, path: String): Unit = {
