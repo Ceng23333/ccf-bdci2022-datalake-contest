@@ -20,32 +20,24 @@
         <local.scope>provided</local.scope>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>oss.sonatype.org-snapshot</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <dependencies>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.83</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>4.0.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.3.3</version>
-        </dependency>
         <dependency>
             <groupId>com.dmetasoul</groupId>
             <artifactId>lakesoul-spark</artifactId>
             <version>2.1.0-lakesoul-spark-3.1.2-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.dmetasoul</groupId>
-            <artifactId>lakesoul-common</artifactId>
-            <version> 2.1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 
         <!-- scala deps -->
