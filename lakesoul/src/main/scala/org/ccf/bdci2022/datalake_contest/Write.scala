@@ -32,7 +32,7 @@ object Write {
 
     val spark = builder.getOrCreate()
 
-    val dataPath0 = "/opt/spark/work-dir/data/base-0.parquet"
+    val dataPath0 = "/home/huazeng/test/parquet/base-0.parquet"
     val dataPath1 = "/opt/spark/work-dir/data/base-1.parquet"
     val dataPath2 = "/opt/spark/work-dir/data/base-2.parquet"
     val dataPath3 = "/opt/spark/work-dir/data/base-3.parquet"
