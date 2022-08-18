@@ -26,6 +26,7 @@ object Read {
       .config("spark.sql.warehouse.dir", "s3://ccf-datalake-contest/datalake_table/")
       .config("spark.sql.extensions", "com.dmetasoul.lakesoul.sql.LakeSoulSparkSessionExtension")
       .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.lakesoul.catalog.LakeSoulCatalog")
+        .config("hive.exec.default.partition.name", "null")
 
     if (args.length >= 1 && args(0) == "--localtest")
       builder.config("spark.hadoop.fs.s3a.endpoint", "http://minio:9000")
