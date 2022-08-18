@@ -33,6 +33,6 @@ object Read {
 
     val spark = builder.getOrCreate()
     val tablePath= "/home/huazeng/test/table/table_test"
-    spark.read.format("lakesoul").load(tablePath).where("gender=Female").write.parquet("/home/huazeng/test/result")
+    spark.read.format("lakesoul").load(tablePath).select().write.parquet("/home/huazeng/test/result")
   }
 }
