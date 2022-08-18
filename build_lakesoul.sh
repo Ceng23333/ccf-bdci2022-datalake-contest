@@ -7,9 +7,9 @@ DIR="$(realpath "${DIR}")"
 
 cd "$DIR"
 
-rm -rf lakesoul/target/jars && mkdir -p lakesoul/target/jars
-
 mvn clean package -pl lakesoul -am -DskipTests
+
+mkdir -p lakesoul/target/jars
 
 cp lakesoul/target/datalake_contest-1.0.0-SNAPSHOT.jar lakesoul/target/jars/datalake_contest.jar
 cp lakesoul/lakesoul.properties lakesoul/target/jars
