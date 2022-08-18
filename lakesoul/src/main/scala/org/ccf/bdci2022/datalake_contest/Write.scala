@@ -48,8 +48,9 @@ object Write {
     val tablePath = "/home/huazeng/test/table/table_test"
     val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
 
-    df.write.format("lakesoul").mode("Overwrite").save(tablePath)
-
+    df.write.format("lakesoul").mode("Overwrite")
+        .option("rangePartitions","gender")
+        .save(tablePath)
   }
 
   def overWriteTable(spark: SparkSession, tablePath: String, path: String): Unit = {
