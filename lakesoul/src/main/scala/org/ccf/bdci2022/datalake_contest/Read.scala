@@ -34,6 +34,6 @@ object Read {
 
     val spark = builder.getOrCreate()
     val tablePath= "/home/huazeng/test/table/table_test"
-    spark.read.format("lakesoul").load(tablePath).select("id").write.parquet("/home/huazeng/test/result")
+    spark.read.format("lakesoul").load(tablePath).select("id","first_name", "last_name").write.parquet("/home/huazeng/test/result")
   }
 }
