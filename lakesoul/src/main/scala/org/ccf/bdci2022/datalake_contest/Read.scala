@@ -27,6 +27,7 @@ object Read {
       .config("spark.sql.extensions", "com.dmetasoul.lakesoul.sql.LakeSoulSparkSessionExtension")
       .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.lakesoul.catalog.LakeSoulCatalog")
       .config("spark.executor.extraJavaOptions", "-XX:MaxPermSize=512m")
+        .config("spark.driver.memory", "2G")
 
     if (args.length >= 1 && args(0) == "--localtest")
       builder.config("spark.hadoop.fs.s3a.endpoint", "http://minio:9000")
