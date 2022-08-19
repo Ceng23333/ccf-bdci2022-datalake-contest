@@ -36,6 +36,7 @@ object Read {
     val spark = builder.getOrCreate()
     val tablePath= "/home/huazeng/test/table/table_test"
     val df = LakeSoulTable.forPath(tablePath).toDF
+    df.show()
 //    df.write.parquet("/home/huazeng/test/result")
   }
 }
