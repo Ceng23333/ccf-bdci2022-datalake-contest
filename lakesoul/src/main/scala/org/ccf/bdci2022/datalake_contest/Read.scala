@@ -8,7 +8,7 @@ object Read {
   def main(args: Array[String]): Unit = {
     val builder = SparkSession.builder()
       .appName("CCF BDCI 2022 DataLake Contest")
-      .master("local[4]")
+      .master("local[2]")
       .config("spark.hadoop.fs.s3.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
       .config("hadoop.fs.s3a.committer.name", "directory")
       .config("spark.hadoop.fs.s3a.committer.staging.conflict-mode", "append")
