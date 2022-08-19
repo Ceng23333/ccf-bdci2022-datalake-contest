@@ -41,6 +41,11 @@
         </dependency>
         <dependency>
             <groupId>com.dmetasoul</groupId>
+            <artifactId>lakesoul-io-java</artifactId>
+            <version>2.1.1-alpha-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dmetasoul</groupId>
             <artifactId>lakesoul-common</artifactId>
             <version>2.1.0-SNAPSHOT</version>
         </dependency>
@@ -135,6 +140,7 @@
                         <includes>
                             <include>com.dmetasoul:lakesoul-spark</include>
                             <include>com.dmetasoul:lakesoul-common</include>
+                            <include>com.dmetasoul:lakesoul-io-java</include>
                             <include>com.zaxxer:HikariCP</include>
                             <include>org.postgresql:postgresql</include>
                             <include>com.alibaba:fastjson</include>
