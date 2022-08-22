@@ -32,6 +32,7 @@ object Write {
         .config("spark.hadoop.fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
 
     val spark = builder.getOrCreate()
+    return ;
 
     val dataPath0 = "/home/huazeng/test/parquet/base-0.parquet"
     val dataPath1 = "/opt/spark/work-dir/data/base-1.parquet"
