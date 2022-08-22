@@ -50,7 +50,6 @@ object Write {
     val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
     println(df)
 
-    return ;
     df.write.format("lakesoul").mode("Overwrite")
         .option("rangePartitions","gender")
         .save(tablePath)
