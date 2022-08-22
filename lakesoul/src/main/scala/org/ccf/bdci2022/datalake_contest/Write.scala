@@ -49,7 +49,7 @@ object Write {
     val tablePath = "/home/huazeng/test/table/table_test"
     val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
 
-    val df2 = df.where("gender is not Null")
+    val df2 = df.where("not gender is Null")
     df2.show()
     df2.write.format("lakesoul").mode("Overwrite")
         .option("rangePartitions","gender")
