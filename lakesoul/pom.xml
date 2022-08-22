@@ -240,7 +240,7 @@
                 <configuration>
                     <artifactSet>
                         <includes>
-<!--                            <include>com.dmetasoul:lakesoul-spark</include>-->
+                            <include>com.dmetasoul:lakesoul-spark</include>
 <!--                            <include>com.dmetasoul:lakesoul-common</include>-->
 <!--                            <include>com.dmetasoul:lakesoul-io-java</include>-->
                             <include>com.zaxxer:HikariCP</include>
