@@ -228,6 +228,11 @@
                             <include>com.github.jnr:jnr-ffi</include>
                             <include>com.github.jnr:jffi</include>
                             <include>org.ow2.asm:asm</include>
+                            <include>org.apache.arrow:arrow-vector</include>
+                            <include>org.apache.arrow:arrow-memory-netty</include>
+                            <include>org.apache.arrow:arrow-memory-core</include>
+                            <include>org.apache.arrow:arrow-c-data</include>
+                            <include>org.apache.arrow:arrow-dataset</include>
                         </includes>
                     </artifactSet>
                 </configuration>
