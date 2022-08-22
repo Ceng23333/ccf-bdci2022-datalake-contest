@@ -170,6 +170,11 @@
                             <include>org.postgresql:postgresql</include>
                             <include>com.alibaba:fastjson</include>
                         </includes>
+                        <excludes>
+                            <exclude>META-INF/*.SF</exclude>
+                            <exclude>META-INF/*.RSA</exclude>
+                            <exclude>META-INF/*.DSA</exclude>
+                        </excludes>
                     </artifactSet>
                 </configuration>
             </plugin>
