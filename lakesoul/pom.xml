@@ -17,6 +17,7 @@
         <scala.version>2.12.10</scala.version>
         <scala.binary.version>2.12</scala.binary.version>
         <scalatest.version>3.1.0</scalatest.version>
+        <arrow.version>7.0.0</arrow.version>
         <local.scope>provided</local.scope>
     </properties>
 
@@ -146,7 +147,31 @@
             <version>9.2</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.apache.arrow</groupId>
+            <artifactId>arrow-vector</artifactId>
+            <version>${arrow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.arrow</groupId>
+            <artifactId>arrow-memory-netty</artifactId>
+            <version>${arrow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.arrow</groupId>
+            <artifactId>arrow-memory-core</artifactId>
+            <version>${arrow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.arrow</groupId>
+            <artifactId>arrow-c-data</artifactId>
+            <version>${arrow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.arrow</groupId>
+            <artifactId>arrow-dataset</artifactId>
+            <version>${arrow.version}</version>
+        </dependency>
 
     </dependencies>
 
