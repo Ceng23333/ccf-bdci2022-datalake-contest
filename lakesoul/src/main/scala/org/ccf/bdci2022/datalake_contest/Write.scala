@@ -1,7 +1,8 @@
 package org.ccf.bdci2022.datalake_contest
 
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.{col, when}
+import org.apache.spark.sql.catalyst.dsl.expressions.{DslExpression, StringToAttributeConversionHelper}
+import org.apache.spark.sql.functions.{col, expr, when}
 
 object Write {
   def main(args: Array[String]): Unit = {
@@ -49,7 +50,7 @@ object Write {
     val tablePath = "/home/huazeng/test/table/table_test"
     val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
 
-    val df2 = df.where("gender = Female")
+    val df2 = df.where(expr("gender is not Null" ))
     df2.show()
     df2.write.format("lakesoul").mode("Overwrite")
         .option("rangePartitions","gender")
