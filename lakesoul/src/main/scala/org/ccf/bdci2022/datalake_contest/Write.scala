@@ -50,7 +50,7 @@ object Write {
     val tablePath = "/home/huazeng/test/table/table_test"
     val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
 
-    val df2 = df.where(expr("gender = \"Female\" or gender = \"Female\"" ))
+    val df2 = df.where(expr("gender = \"Female\" or gender = \"Male\"" ))
     df2.show()
     df2.write.format("lakesoul").mode("Overwrite")
         .option("rangePartitions","gender")
