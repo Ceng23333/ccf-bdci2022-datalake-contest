@@ -134,6 +134,12 @@
             <version>2.2.12</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.jnr</groupId>
+            <artifactId>jffi</artifactId>
+            <version>1.3.9</version>
+        </dependency>
+
 
     </dependencies>
 
@@ -188,6 +194,7 @@
                             <include>org.postgresql:postgresql</include>
                             <include>com.alibaba:fastjson</include>
                             <include>com.github.jnr:jnr-ffi</include>
+                            <include>com.github.jnr:jffi</include>
                         </includes>
                     </artifactSet>
                 </configuration>
