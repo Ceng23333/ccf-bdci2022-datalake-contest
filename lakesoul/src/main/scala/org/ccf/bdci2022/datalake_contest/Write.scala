@@ -48,9 +48,10 @@ object Write {
 
     val tablePath = "/home/huazeng/test/table/table_test"
     val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
-    println(df)
 
-    df.where(df("gender").isNotNull).write.format("lakesoul").mode("Overwrite")
+    val df2 = df.where(df("gender").isNotNull)
+    df2.show()
+    df2.write.format("lakesoul").mode("Overwrite")
         .option("rangePartitions","gender")
         .save(tablePath)
   }
