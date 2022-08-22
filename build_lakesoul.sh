@@ -17,4 +17,4 @@ cp $LakeSoulLib/liblakesoul_io_c.so lakesoul/target/jars
 
 # mvn dependency:copy-dependencies -DoutputDirectory=target/jars -DincludeScope=runtime -DexcludeGroupIds=org.slf4j,org.apache.logging.log4j -pl lakesoul -DskipTests
 
-tar czf lakesoul/target/datalake.tar.gz -C lakesoul/target/jars .
+#tar czf lakesoul/target/datalake.tar.gz -C lakesoul/target/jars .
