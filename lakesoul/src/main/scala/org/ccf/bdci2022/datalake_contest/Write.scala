@@ -47,7 +47,7 @@ object Write {
 
 
     val tablePath = "/home/huazeng/test/table/table_test"
-    val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
+    val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF().where("gender is not NULL")
     println(df)
 
     df.write.format("lakesoul").mode("Overwrite")
