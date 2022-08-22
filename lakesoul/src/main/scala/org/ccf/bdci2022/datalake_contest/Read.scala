@@ -37,7 +37,7 @@ object Read {
     val tablePath= "/home/huazeng/test/table/table_test"
 //    val df = LakeSoulTable.forPath(tablePath).toDF
     val df = spark.read.format("lakesoul").load(tablePath)
-    df.show()
+    df.select("id").show()
 //    df.write.parquet("/home/huazeng/test/result")
   }
 }
