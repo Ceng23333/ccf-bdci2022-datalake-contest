@@ -145,8 +145,8 @@
         <dependency>
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm</artifactId>
-            <version>${local.scope}</version>
-            <scope>compile</scope>
+            <version>9.2</version>
+            <scope>${local.scope}</scope>
         </dependency>
 
 
