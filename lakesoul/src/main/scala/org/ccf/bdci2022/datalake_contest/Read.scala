@@ -39,7 +39,7 @@ object Read {
 //    val df = LakeSoulTable.forPath(tablePath).toDF
     val df = spark.read.format("lakesoul").load(tablePath)
 //    df.selectExpr("id","first_name","last_name","email","ip_address","cc","country","birthdate","salary","title","comments" ).show(100)
-      df.selectExpr("id","last_name","email","cc","country","birthdate","salary", "title","gender" ).show(100)
+      df.selectExpr("id","last_name","email","cc","country","birthdate","salary", "title","gender" ).show(200)
 //    df.write.parquet("/home/huazeng/test/result")
   }
 }
