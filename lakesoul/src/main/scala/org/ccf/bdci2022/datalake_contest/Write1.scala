@@ -58,7 +58,7 @@ object Write1 {
         .save(tablePath)
 
     overWriteTable(spark, tablePath, dataPath1)
-    overWriteTable(spark, tablePath, dataPath2)
+//    overWriteTable(spark, tablePath, dataPath2)
   }
 
   def overWriteTable(spark: SparkSession, tablePath: String, path: String): Unit = {
