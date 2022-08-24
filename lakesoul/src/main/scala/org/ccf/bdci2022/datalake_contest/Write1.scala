@@ -63,8 +63,9 @@ object Write1 {
 
   def overWriteTable(spark: SparkSession, tablePath: String, path: String): Unit = {
     val df1 = spark.read.format("lakesoul").load(tablePath)
-    df1.show(50)
+    df1.show(20)
     val df2 = spark.read.format("parquet").load(path)
+    df2.show(20)
     df1.join(df2, Seq("id"),"full").select(
       col("id"),
       when(df2("ip_address").isNotNull, df2("ip_address")).otherwise(df1("ip_address")).alias("ip_address"),
