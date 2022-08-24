@@ -67,15 +67,18 @@ object Write1 {
     df1.show(20)
     val df2 = spark.read.format("parquet").load(path).where(expr("gender = \"Female\"" ))
     df2.show(20)
-    df1.join(df2, Seq("id"),"full").select(
+    val joined_df = df1.join(df2, Seq("id"),"full").select(
       col("id"),
       when(df2("ip_address").isNotNull, df2("ip_address")).otherwise(df1("ip_address")).alias("ip_address"),
       when(df2("first_name").isNotNull && df2("first_name").notEqual("null"), df2("first_name")).otherwise(df1("first_name")).alias("first_name"),
       when(df2("country").isNotNull, df2("country")).otherwise(df1("country")).alias("country"),
       when(df2("email").isNotNull, df2("email")).otherwise(df1("email")).alias("email"),
       when(df2("gender").isNotNull, df2("gender")).otherwise(df1("gender")).alias("gender"),
-    ).write.mode("Overwrite").format("lakesoul")
-        .option("rangePartitions","gender").save(tablePath)
+    )
+    joined_df.show()
+    joined_df.write.mode("Overwrite").format("lakesoul")
+        .option("rangePartitions","gender")
+        .save(tablePath)
   }
 
 }
