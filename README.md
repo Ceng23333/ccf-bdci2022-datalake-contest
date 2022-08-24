@@ -43,6 +43,6 @@
 ### 打包
 在代码根目录下执行：
 ```bash
-./build_lakesoul.sh
+./update_contest.sh
 ```
 即会在 `lakesoul/target` 目录下生成 `datalake.tar.gz` 文件，可以提交到赛题评测页面查看评测结果。
