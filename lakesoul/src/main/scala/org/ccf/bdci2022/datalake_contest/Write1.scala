@@ -18,6 +18,7 @@ object Write1 {
       .config("spark.hadoop.fs.s3a.buffer.dir", "/opt/spark/work-dir/s3a")
       .config("spark.hadoop.fs.s3a.fast.upload.buffer", "disk")
       .config("spark.hadoop.fs.s3a.fast.upload", value = true)
+        .config("spark.sql.parquet.columnarReaderBatchSize", 128)
       .config("spark.hadoop.fs.s3a.multipart.size", 67108864)
       .config("spark.sql.parquet.mergeSchema", value = false)
       .config("spark.sql.parquet.filterPushdown", value = true)
