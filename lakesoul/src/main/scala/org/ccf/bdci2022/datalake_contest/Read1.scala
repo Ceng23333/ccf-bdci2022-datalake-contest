@@ -18,6 +18,8 @@ object Read1 {
       .config("spark.hadoop.fs.s3a.fast.upload.buffer", "disk")
       .config("spark.hadoop.fs.s3a.fast.upload", value = true)
       .config("spark.hadoop.fs.s3a.multipart.size", 67108864)
+
+        .config("spark.sql.parquet.columnarReaderBatchSize", 16)
       .config("spark.sql.parquet.mergeSchema", value = false)
       .config("spark.sql.parquet.filterPushdown", value = true)
       .config("spark.hadoop.mapred.output.committer.class", "org.apache.hadoop.mapred.FileOutputCommitter")
@@ -35,7 +37,7 @@ object Read1 {
     val tablePath= "/home/huazeng/test/table/table_test1"
 //    val df = LakeSoulTable.forPath(tablePath).toDF
     val df = spark.read.format("lakesoul").load(tablePath)
-    df.selectExpr("id","first_name","email","ip_address","country" ).show(100)
+    df.selectExpr("id","first_name","email","ip_address","gender","country" ).show(100)
 //      df.selectExpr("id","last_name","email","cc","country","birthdate","salary", "title","gender" ).show(100)
 //    df.write.parquet("/home/huazeng/test/result")
   }
