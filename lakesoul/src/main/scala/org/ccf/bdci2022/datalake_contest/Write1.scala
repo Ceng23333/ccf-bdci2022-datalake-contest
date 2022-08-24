@@ -51,8 +51,8 @@ object Write1 {
 
 //    val df2 = df.where(expr("gender = \"Female\" or gender = \"Male\"" ))
     val df2 = df
-//        .where(expr("gender = \"Female\"" ))
-    df2.show()
+        .where(expr("gender = \"Female\"" ))
+//    df2.show()
     df2.write.format("lakesoul").mode("Overwrite")
         .option("rangePartitions","gender")
         .save(tablePath)
@@ -64,7 +64,7 @@ object Write1 {
   def overWriteTable(spark: SparkSession, tablePath: String, path: String): Unit = {
     val df1 = spark.read.format("lakesoul").load(tablePath)
     df1.show(20)
-    val df2 = spark.read.format("parquet").load(path)
+    val df2 = spark.read.format("parquet").load(path).where(expr("gender = \"Female\"" ))
     df2.show(20)
     df1.join(df2, Seq("id"),"full").select(
       col("id"),
