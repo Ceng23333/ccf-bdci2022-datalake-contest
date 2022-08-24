@@ -64,16 +64,12 @@ object Write1 {
   def overWriteTable(spark: SparkSession, tablePath: String, path: String): Unit = {
     val df1 = spark.read.format("lakesoul").load(tablePath)
     val df2 = spark.read.format("parquet").load(path)
-    df1.join(df2, Seq("uuid"),"full").select(
-      col("uuid"),
-      when(df2("ip").isNotNull, df2("ip")).otherwise(df1("ip")).alias("ip"),
-      when(df2("hostname").isNotNull, df2("hostname")).otherwise(df1("hostname")).alias("hostname"),
-      when(df1("requests").isNotNull && df2("requests").isNotNull, df1("requests") + df2("requests"))
-        .otherwise(when(df1("requests").isNotNull, df1("requests")).otherwise(df2("requests"))).alias("requests"),
-      when(df2("name").isNotNull && df2("name").notEqual("null"), df2("name")).otherwise(df1("name")).alias("name"),
-      when(df2("city").isNotNull, df2("city")).otherwise(df1("city")).alias("city"),
-      when(df2("job").isNotNull, df2("job")).otherwise(df1("job")).alias("job"),
-      when(df2("phonenum").isNotNull, df2("phonenum")).otherwise(df1("phonenum")).alias("phonenum")
+    df1.join(df2, Seq("id"),"full").select(
+      col("id"),
+      when(df2("ip_address").isNotNull, df2("ip_address")).otherwise(df1("ip_address")).alias("ip_address"),
+      when(df2("first_name").isNotNull && df2("first_name").notEqual("null"), df2("first_name")).otherwise(df1("first_name")).alias("first_name"),
+      when(df2("country").isNotNull, df2("country")).otherwise(df1("country")).alias("country"),
+      when(df2("email").isNotNull, df2("email")).otherwise(df1("email")).alias("email")
     ).write.mode("Overwrite").format("lakesoul").save(tablePath)
   }
 
