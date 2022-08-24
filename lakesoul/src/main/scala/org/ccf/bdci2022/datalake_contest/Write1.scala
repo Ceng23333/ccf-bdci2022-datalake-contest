@@ -59,7 +59,9 @@ object Write1 {
         .save(tablePath)
 
     overWriteTable(spark, tablePath, dataPath1)
+    println("overWriteTable1 Done")
     overWriteTable(spark, tablePath, dataPath2)
+    println("overWriteTable2 Done")
   }
 
   def overWriteTable(spark: SparkSession, tablePath: String, path: String): Unit = {
@@ -76,9 +78,9 @@ object Write1 {
       when(df2("gender").isNotNull, df2("gender")).otherwise(df1("gender")).alias("gender"),
     )
     joined_df.show()
-//    joined_df.write.mode("Overwrite").format("lakesoul")
-//        .option("rangePartitions","gender")
-//        .save(tablePath)
+    joined_df.write.mode("Overwrite").format("lakesoul")
+        .option("rangePartitions","gender")
+        .save(tablePath)
   }
 
 }
