@@ -60,8 +60,8 @@ object Write1 {
 
     overWriteTable(spark, tablePath, dataPath1)
     println("overWriteTable1 Done")
-//    overWriteTable(spark, tablePath, dataPath2)
-//    println("overWriteTable2 Done")
+    overWriteTable(spark, tablePath, dataPath2)
+    println("overWriteTable2 Done")
   }
 
   def overWriteTable(spark: SparkSession, tablePath: String, path: String): Unit = {
