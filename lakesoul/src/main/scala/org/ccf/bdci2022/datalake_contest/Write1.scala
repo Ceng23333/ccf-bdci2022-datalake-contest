@@ -69,7 +69,8 @@ object Write1 {
       when(df2("ip_address").isNotNull, df2("ip_address")).otherwise(df1("ip_address")).alias("ip_address"),
       when(df2("first_name").isNotNull && df2("first_name").notEqual("null"), df2("first_name")).otherwise(df1("first_name")).alias("first_name"),
       when(df2("country").isNotNull, df2("country")).otherwise(df1("country")).alias("country"),
-      when(df2("email").isNotNull, df2("email")).otherwise(df1("email")).alias("email")
+      when(df2("email").isNotNull, df2("email")).otherwise(df1("email")).alias("email"),
+      col("gender")
     ).write.mode("Overwrite").format("lakesoul")
         .option("rangePartitions","gender").save(tablePath)
   }
