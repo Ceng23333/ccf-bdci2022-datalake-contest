@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-
 set -ex
 
 DIR="$(dirname "${BASH_SOURCE[0]}")"
 DIR="$(realpath "${DIR}")"
 
 cd "$DIR"
+
+git pull
 
 mvn clean package -pl lakesoul -am -DskipTests
 
