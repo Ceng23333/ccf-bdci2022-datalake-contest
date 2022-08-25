@@ -47,7 +47,7 @@ object Write2 {
     val dataPath10 = "/opt/spark/work-dir/data/base-10.parquet"
 
 
-    val tablePath = "/home/huazeng/test/table/table_test1"
+    val tablePath = "/home/huazeng/test/table/table_test2"
     val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
 
     val df2 = df
@@ -57,7 +57,7 @@ object Write2 {
     df2.write.format("lakesoul").mode("Overwrite")
         .option("rangePartitions","gender")
         .option("hashPartitions","id")
-        .option("hashBucketNum", "2")
+        .option("hashBucketNum", "3")
         .save(tablePath)
 
     overWriteTable(spark, tablePath, dataPath1)
@@ -93,7 +93,7 @@ object Write2 {
     joined_df.repartition(1).write.mode("Overwrite").format("lakesoul")
         .option("rangePartitions","gender")
         .option("hashPartitions","id")
-        .option("hashBucketNum", "2")
+        .option("hashBucketNum", "3")
         .save(tablePath)
   }
 
