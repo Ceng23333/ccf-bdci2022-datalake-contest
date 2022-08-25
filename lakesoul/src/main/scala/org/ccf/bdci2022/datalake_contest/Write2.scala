@@ -92,6 +92,8 @@ object Write2 {
     joined_df.show()
     joined_df.repartition(1).write.mode("Overwrite").format("lakesoul")
         .option("rangePartitions","gender")
+        .option("hashPartitions","id")
+        .option("hashBucketNum", "2")
         .save(tablePath)
   }
 
