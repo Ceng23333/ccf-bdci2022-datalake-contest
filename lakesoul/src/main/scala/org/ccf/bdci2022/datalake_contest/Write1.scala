@@ -37,8 +37,8 @@ object Write1 {
     val dataPath0 = "/home/huazeng/test/parquet/base-0.parquet"
     val dataPath1 = "/home/huazeng/test/parquet/base-1.parquet"
     val dataPath2 = "/home/huazeng/test/parquet/base-2.parquet"
-    val dataPath3 = "/opt/spark/work-dir/data/base-3.parquet"
-    val dataPath4 = "/opt/spark/work-dir/data/base-4.parquet"
+    val dataPath3 = "/home/huazeng/test/parquet/base-3.parquet"
+    val dataPath4 = "/home/huazeng/test/parquet/base-4.parquet"
     val dataPath5 = "/opt/spark/work-dir/data/base-5.parquet"
     val dataPath6 = "/opt/spark/work-dir/data/base-6.parquet"
     val dataPath7 = "/opt/spark/work-dir/data/base-7.parquet"
@@ -50,9 +50,9 @@ object Write1 {
     val tablePath = "/home/huazeng/test/table/table_test1"
     val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
 
-//    val df2 = df.where(expr("gender = \"Female\" or gender = \"Male\"" ))
     val df2 = df
-        .where(expr("gender = \"Female\"" ))
+//        .where(expr("gender = \"Female\"" ))
+        .where(expr("gender = \"Female\" or gender = \"Male\"" ))
 //    df2.show()
     df2.write.format("lakesoul").mode("Overwrite")
         .option("rangePartitions","gender")
@@ -62,6 +62,10 @@ object Write1 {
     println("overWriteTable1 Done")
     overWriteTable(spark, tablePath, dataPath2)
     println("overWriteTable2 Done")
+    overWriteTable(spark, tablePath, dataPath3)
+    println("overWriteTable3 Done")
+    overWriteTable(spark, tablePath, dataPath4)
+    println("overWriteTable4 Done")
   }
 
   def overWriteTable(spark: SparkSession, tablePath: String, path: String): Unit = {
@@ -73,7 +77,13 @@ object Write1 {
       col("id"),
       when(df2("ip_address").isNotNull, df2("ip_address")).otherwise(df1("ip_address")).alias("ip_address"),
       when(df2("first_name").isNotNull && df2("first_name").notEqual("null"), df2("first_name")).otherwise(df1("first_name")).alias("first_name"),
+      when(df2("last_name").isNotNull && df2("last_name").notEqual("null"), df2("last_name")).otherwise(df1("last_name")).alias("last_name"),
+      when(df2("cc").isNotNull, df2("cc")).otherwise(df1("cc")).alias("cc"),
       when(df2("country").isNotNull, df2("country")).otherwise(df1("country")).alias("country"),
+      when(df2("birthdate").isNotNull, df2("birthdate")).otherwise(df1("birthdate")).alias("birthdate"),
+      when(df2("salary").isNotNull, df2("salary")).otherwise(df1("salary")).alias("salary"),
+      when(df2("comments").isNotNull, df2("comments")).otherwise(df1("comments")).alias("comments"),
+      when(df2("title").isNotNull, df2("title")).otherwise(df1("title")).alias("title"),
       when(df2("email").isNotNull, df2("email")).otherwise(df1("email")).alias("email"),
       when(df2("gender").isNotNull, df2("gender")).otherwise(df1("gender")).alias("gender"),
     )
