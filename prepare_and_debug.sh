@@ -1,7 +1,7 @@
 ls /home/huazeng/.m2/repository/com/dmetasoul
-lakesoul_spark="/home/huazeng/.m2/repository/com/dmetasoul/lakesoul-spark/2.1.0-lakesoul-spark-3.1.2-SNAPSHOT/lakesoul-spark-2.1.0-lakesoul-spark-3.1.2-SNAPSHOT.jar"
+lakesoul_spark="/home/huazeng/\.m2/repository/com/dmetasoul/lakesoul-spark/2.1.0-lakesoul-spark-3.1.2-SNAPSHOT/lakesoul-spark-2.1.0-lakesoul-spark-3.1.2-SNAPSHOT.jar"
 ls $lakesoul_spark
-lakesoul_common="/home/huazeng/.m2/repository/com/dmetasoul/lakesoul-common/2.1.0-SNAPSHOT/lakesoul-common-2.1.0-SNAPSHOT.jar"
+lakesoul_common="/home/huazeng/\.m2/repository/com/dmetasoul/lakesoul-common/2.1.0-SNAPSHOT/lakesoul-common-2.1.0-SNAPSHOT.jar"
 ls $lakesoul_common
 cp $lakesoul_spark  /opt/spark/jars
 cp $lakesoul_common /opt/spark/jars
