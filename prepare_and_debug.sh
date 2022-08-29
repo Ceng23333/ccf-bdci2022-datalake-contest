@@ -1,2 +1,3 @@
+ls /home/huazeng/.m2/repository/com/dmetasoul
 cp /home/huazeng/.m2/repository/com/dmetasoul/lakesoul-spark/2.1.0-lakesoul-spark-3.1.2-SNAPSHOT/lakesoul-spark-2.1.0-lakesoul-spark-3.1.2-SNAPSHOT.jar /home/huazeng/.m2/repository/com/dmetasoul/lakesoul-common/2.1.0-SNAPSHOT/lakesoul-common-2.1.0-SNAPSHOT.jar /opt/spark/jars
 spark-shell --conf spark.sql.extensions=com.dmetasoul.lakesoul.sql.LakeSoulSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.lakesoul.catalog.LakeSoulCatalog
