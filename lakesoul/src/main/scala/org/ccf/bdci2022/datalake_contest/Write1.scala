@@ -89,7 +89,7 @@ object Write1 {
     )
     joined_df.show()
     joined_df
-        .repartition(2)
+        .repartition(1)
         .write.mode("Overwrite").format("lakesoul")
         .option("rangePartitions","gender")
         .save(tablePath)
