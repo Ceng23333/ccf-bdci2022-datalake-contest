@@ -30,7 +30,7 @@ object Read1 {
         .config("spark.driver.memory", "2G")
 
     if (args.length >= 1 && args(0) == "--localtest")
-      builder.config("spark.hadoop.fs.s3a.endpoint", "http://minio:9000")
+      builder.config("spark.hadoop.fs.s3a.endpoint", "http://minio:9090")
         .config("spark.hadoop.fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
 
     val spark = builder.getOrCreate()
