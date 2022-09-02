@@ -70,6 +70,7 @@ object Write1 {
 
   def overWriteTable(spark: SparkSession, tablePath: String, path: String): Unit = {
     val df1 = spark.read.format("lakesoul").load(tablePath)
+//    val df1 = spark.read.format("lakesoul").load("/home/huazeng/test/table/table_test1")
     df1.show(20)
     val df2 = spark.read.format("parquet").load(path).where(expr("gender = \"Female\"" ))
     df2.show(20)
