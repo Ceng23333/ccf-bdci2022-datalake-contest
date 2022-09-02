@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  lakesoul-meta-db:
+  huazeng-lakesoul-meta-db:
     image: postgres:latest
     restart: always
     environment:
@@ -12,7 +12,7 @@ services:
       - ./meta_init.sql:/docker-entrypoint-initdb.d/meta_init.sql
       - ./meta_cleanup.sql:/meta_cleanup.sql
 
-  minio:
+  huazeng-minio:
     image: bitnami/minio:latest
     ports:
       - "9000:9000"
