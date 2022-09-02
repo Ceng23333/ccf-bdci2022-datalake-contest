@@ -8,7 +8,9 @@ cd "$DIR"
 
 git pull
 
-sudo mvn clean package -pl lakesoul -am -DskipTests
+rm -rf lakesoul/target
+
+mvn package -pl lakesoul -am -DskipTests
 
 mkdir -p lakesoul/target/jars
 
