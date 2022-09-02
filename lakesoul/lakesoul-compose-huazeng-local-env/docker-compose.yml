@@ -15,8 +15,8 @@ services:
   huazeng-minio:
     image: bitnami/minio:latest
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - "9090:9090"
+      - "9091:9091"
     environment:
       MINIO_DEFAULT_BUCKETS: ccf-datalake-contest:public
       MINIO_ROOT_USER: minioadmin1
