@@ -8,7 +8,7 @@ cd "$DIR"
 
 git pull
 
-rm -rf lakesoul/target
+sudo rm -rf lakesoul/target
 
 mvn package -pl lakesoul -am -DskipTests
 
