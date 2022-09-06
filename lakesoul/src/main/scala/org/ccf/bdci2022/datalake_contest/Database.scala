@@ -51,8 +51,8 @@ object Database {
 
         spark.sql("SHOW NAMESPACES")
         spark.sql("SHOW CURRENT NAMESPACE").show()
-        return
         spark.sql("CREATE NAMESPACE test")
+        return
         spark.sql("USE NAMESPACE test")
         spark.sql("SHOW CURRENT NAMESPACE")
 
