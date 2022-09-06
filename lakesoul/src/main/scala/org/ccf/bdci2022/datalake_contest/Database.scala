@@ -53,7 +53,9 @@ object Database {
         spark.sql("SHOW CURRENT NAMESPACE").show()
 //        spark.sql("CREATE NAMESPACE test")
         LakeSoulTable.createNamespace(Array("test"))
-        spark.sql("USE NAMESPACE test")
+        LakeSoulTable.useNamespace(Array("test"))
+        spark.sql("SHOW CURRENT NAMESPACE").show()
+
         return
         spark.sql("SHOW CURRENT NAMESPACE")
 
