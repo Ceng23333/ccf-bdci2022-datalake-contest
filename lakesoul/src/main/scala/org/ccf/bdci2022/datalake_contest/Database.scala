@@ -3,6 +3,7 @@ package org.ccf.bdci2022.datalake_contest
 import com.dmetasoul.lakesoul.tables.LakeSoulTable
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.expr
+import org.apache.spark.sql.lakesoul.catalog.LakeSoulCatalog
 import org.ccf.bdci2022.datalake_contest.Write1.overWriteTable
 
 object Database {
@@ -52,8 +53,8 @@ object Database {
         spark.sql("SHOW NAMESPACES")
         spark.sql("SHOW CURRENT NAMESPACE").show()
 //        spark.sql("CREATE NAMESPACE test")
-        LakeSoulTable.createNamespace(Array("test"))
-        LakeSoulTable.useNamespace(Array("test"))
+        LakeSoulCatalog.createNamespace(Array("test"))
+        LakeSoulCatalog.useNamespace(Array("test"))
         spark.sql("SHOW CURRENT NAMESPACE").show()
 
         return
