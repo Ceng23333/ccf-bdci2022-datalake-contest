@@ -51,9 +51,10 @@ object Database {
 
         spark.sql("SHOW NAMESPACES")
         spark.sql("SHOW CURRENT NAMESPACE").show()
-        spark.sql("CREATE NAMESPACE test")
-        return
+//        spark.sql("CREATE NAMESPACE test")
+        LakeSoulTable.createNamespace(Array("test"))
         spark.sql("USE NAMESPACE test")
+        return
         spark.sql("SHOW CURRENT NAMESPACE")
 
         val tablePath = "/home/huazeng/test/table/table_test0"
