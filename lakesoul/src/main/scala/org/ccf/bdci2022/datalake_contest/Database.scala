@@ -50,7 +50,8 @@ object Database {
         val dataPath10 = "/opt/spark/work-dir/data/base-10.parquet"
 
         spark.sql("SHOW NAMESPACES")
-        spark.sql("SHOW CURRENT NAMESPACE")
+        spark.sql("SHOW CURRENT NAMESPACE").show()
+        return
         spark.sql("CREATE NAMESPACE test")
         spark.sql("USE NAMESPACE test")
         spark.sql("SHOW CURRENT NAMESPACE")
