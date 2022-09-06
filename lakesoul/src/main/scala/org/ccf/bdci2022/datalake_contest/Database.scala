@@ -80,7 +80,5 @@ object Database {
             .mode("Overwrite")
             .option("rangePartitions","gender")
             .save(tablePath)
-        LakeSoulTable.listTables(Array("test"))
-        LakeSoulTable.listTables(Array("default"))
     }
 }
