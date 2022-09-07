@@ -54,7 +54,9 @@ object Database {
         spark.sql("SHOW CURRENT NAMESPACE").show()
 //        spark.sql("CREATE NAMESPACE test")
         LakeSoulCatalog.createNamespace(Array("test"))
+//        spark.sql("USE NAMESPACE test")
         LakeSoulCatalog.useNamespace(Array("test"))
+//        spark.sql("SHOW CURRENT NAMESPACE")
         LakeSoulCatalog.showCurrentNamespace()
 
 
@@ -66,10 +68,12 @@ object Database {
             .mode("Overwrite")
             .option("rangePartitions","gender")
             .save(tablePath)
-        return
 
-        spark.sql("USE NAMESPACE default")
-        spark.sql("SHOW CURRENT NAMESPACE")
+
+//        spark.sql("USE NAMESPACE default")
+        LakeSoulCatalog.useNamespace(Array("default"))
+        //        spark.sql("SHOW CURRENT NAMESPACE")
+        LakeSoulCatalog.showCurrentNamespace()
 
         val tablePath1 = "/home/huazeng/test/table/table_test1"
         val df1 = spark.read.format("parquet").option("header", true).load(dataPath1).toDF()
@@ -79,5 +83,7 @@ object Database {
             .mode("Overwrite")
             .option("rangePartitions","gender")
             .save(tablePath)
+
+
     }
 }
