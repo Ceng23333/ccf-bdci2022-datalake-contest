@@ -57,7 +57,7 @@ object Database {
 //        spark.sql("USE NAMESPACE test")
         LakeSoulCatalog.useNamespace(Array("test"))
 //        spark.sql("SHOW CURRENT NAMESPACE")
-        println(LakeSoulCatalog.showCurrentNamespace())
+        println("showCurrentNamespace=" + LakeSoulCatalog.showCurrentNamespace().head)
 
         val tablePath = "/home/huazeng/test/table/table_test0"
         val df0 = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
@@ -72,7 +72,7 @@ object Database {
 //        spark.sql("USE NAMESPACE default")
         LakeSoulCatalog.useNamespace(Array("default"))
         //        spark.sql("SHOW CURRENT NAMESPACE")
-        println(LakeSoulCatalog.showCurrentNamespace())
+        println("showCurrentNamespace=" + LakeSoulCatalog.showCurrentNamespace().head)
 
         val tablePath1 = "/home/huazeng/test/table/table_test1"
         val df1 = spark.read.format("parquet").option("header", true).load(dataPath1).toDF()
