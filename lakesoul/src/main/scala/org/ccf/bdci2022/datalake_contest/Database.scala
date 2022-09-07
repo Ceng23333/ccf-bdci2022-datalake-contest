@@ -83,7 +83,8 @@ object Database {
             .mode("Overwrite")
             .option("rangePartitions","gender")
             .save(tablePath)
-
+        spark.sql("SHOW TABLES FROM default")
+        spark.sql("SHOW TABLES FROM test")
 
     }
 }
