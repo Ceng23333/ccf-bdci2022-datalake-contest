@@ -83,8 +83,8 @@ object Database {
             .option("rangePartitions","gender")
             .save(tablePath)
 //        spark.sql("SHOW TABLES FROM default")
-        println(LakeSoulCatalog.listTables(Array("default")))
-        println(LakeSoulCatalog.listTables(Array("test")))
+        LakeSoulCatalog.listTables(Array("default")).foreach(p => println(p))
+        LakeSoulCatalog.listTables(Array("test")).foreach(p => println(p))
 //        spark.sql("SHOW TABLES FROM test")
 
     }
