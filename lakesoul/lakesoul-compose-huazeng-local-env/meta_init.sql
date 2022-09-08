@@ -1,7 +1,7 @@
 create table if not exists namespace (
     name text,
     properties json,
-    primary key(namespace)
+    primary key(name)
 );
 
 create table if not exists table_info (
