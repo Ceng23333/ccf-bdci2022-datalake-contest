@@ -4,6 +4,8 @@ create table if not exists namespace (
     primary key(name)
 );
 
+insert into namespace(name, properties) values ('default', '{}')
+
 create table if not exists table_info (
     table_id text,
     table_namespace text,
