@@ -29,16 +29,16 @@ object Write1 {
         .config("hive.exec.default.partition.name", "null")
 
     if (args.length >= 1 && args(0) == "--localtest")
-      builder.config("spark.hadoop.fs.s3a.endpoint", "http://minio:9090")
+      builder.config("spark.hadoop.fs.s3a.endpoint", "http://minio:9000")
         .config("spark.hadoop.fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
 
     val spark = builder.getOrCreate()
 
-    val dataPath0 = "/home/huazeng/test/parquet/base-0.parquet"
-    val dataPath1 = "/home/huazeng/test/parquet/base-1.parquet"
-    val dataPath2 = "/home/huazeng/test/parquet/base-2.parquet"
-    val dataPath3 = "/home/huazeng/test/parquet/base-3.parquet"
-    val dataPath4 = "/home/huazeng/test/parquet/base-4.parquet"
+    val dataPath0 = "/home/huazeng/test/sample-parquet-files/part-00000-a9e77425-5fb4-456f-ba52-f821123bd193-c000.snappy.parquet"
+    val dataPath1 = "/home/huazeng/test/sample-parquet-files/part-00001-a9e77425-5fb4-456f-ba52-f821123bd193-c000.snappy.parquet"
+    val dataPath2 = "/home/huazeng/test/sample-parquet-files/part-00002-a9e77425-5fb4-456f-ba52-f821123bd193-c000.snappy.parquet"
+    val dataPath3 = "/home/huazeng/test/sample-parquet-files/part-00003-a9e77425-5fb4-456f-ba52-f821123bd193-c000.snappy.parquet"
+    val dataPath4 = "/home/huazeng/test/sample-parquet-files/part-00004-a9e77425-5fb4-456f-ba52-f821123bd193-c000.snappy.parquet"
     val dataPath5 = "/opt/spark/work-dir/data/base-5.parquet"
     val dataPath6 = "/opt/spark/work-dir/data/base-6.parquet"
     val dataPath7 = "/opt/spark/work-dir/data/base-7.parquet"
@@ -47,7 +47,7 @@ object Write1 {
     val dataPath10 = "/opt/spark/work-dir/data/base-10.parquet"
 
 
-    val tablePath = "/home/huazeng/test/table/table_test1"
+    val tablePath = "s3a://ccf-datalake-contest/datalake_table"
     val df = spark.read.format("parquet").option("header", true).load(dataPath0).toDF()
 
     val df2 = df
@@ -58,14 +58,14 @@ object Write1 {
         .option("rangePartitions","gender")
         .save(tablePath)
 
-    overWriteTable(spark, tablePath, dataPath1)
-    println("overWriteTable1 Done")
-    overWriteTable(spark, tablePath, dataPath2)
-    println("overWriteTable2 Done")
-    overWriteTable(spark, tablePath, dataPath3)
-    println("overWriteTable3 Done")
-    overWriteTable(spark, tablePath, dataPath4)
-    println("overWriteTable4 Done")
+//    overWriteTable(spark, tablePath, dataPath1)
+//    println("overWriteTable1 Done")
+//    overWriteTable(spark, tablePath, dataPath2)
+//    println("overWriteTable2 Done")
+//    overWriteTable(spark, tablePath, dataPath3)
+//    println("overWriteTable3 Done")
+//    overWriteTable(spark, tablePath, dataPath4)
+//    println("overWriteTable4 Done")
   }
 
   def overWriteTable(spark: SparkSession, tablePath: String, path: String): Unit = {

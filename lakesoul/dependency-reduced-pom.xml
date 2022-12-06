@@ -12,7 +12,29 @@
     <sourceDirectory>src/main/scala</sourceDirectory>
     <outputDirectory>target/scala-${scala.binary.version}/classes</outputDirectory>
     <testOutputDirectory>target/scala-${scala.binary.version}/test-classes</testOutputDirectory>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>*.dylib</include>
+        </includes>
+      </resource>
+    </resources>
     <plugins>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M6</version>
+        <configuration>
+          <argLine>--add-opens=java.base/java.nio=ALL-UNNAMED</argLine>
+        </configuration>
+      </plugin>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.2.4</version>
@@ -29,9 +51,18 @@
             <includes>
               <include>com.dmetasoul:lakesoul-spark</include>
               <include>com.dmetasoul:lakesoul-common</include>
+              <include>com.dmetasoul:lakesoul-io-java</include>
               <include>com.zaxxer:HikariCP</include>
               <include>org.postgresql:postgresql</include>
               <include>com.alibaba:fastjson</include>
+              <include>com.github.jnr:jnr-ffi</include>
+              <include>com.github.jnr:jffi</include>
+              <include>org.ow2.asm:asm</include>
+              <include>org.apache.arrow:arrow-vector</include>
+              <include>org.apache.arrow:arrow-memory-netty</include>
+              <include>org.apache.arrow:arrow-memory-core</include>
+              <include>org.apache.arrow:arrow-c-data</include>
+              <include>org.apache.arrow:arrow-dataset</include>
             </includes>
           </artifactSet>
         </configuration>
@@ -54,6 +85,16 @@
       </plugin>
     </plugins>
   </build>
+  <repositories>
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots />
+      <id>oss.sonatype.org-snapshot</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+  </repositories>
   <dependencies>
     <dependency>
       <groupId>org.scala-lang</groupId>
@@ -102,6 +143,7 @@
     <scala.binary.version>2.12</scala.binary.version>
     <spark.version>3.1.2</spark.version>
     <scalatest.version>3.1.0</scalatest.version>
+    <arrow.version>7.0.0</arrow.version>
     <scala.version>2.12.10</scala.version>
     <local.scope>provided</local.scope>
   </properties>

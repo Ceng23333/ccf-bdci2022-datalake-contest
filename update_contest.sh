@@ -6,8 +6,6 @@ DIR="$(realpath "${DIR}")"
 
 cd "$DIR"
 
-git pull
-
 sudo rm -rf lakesoul/target
 
 mvn package -pl lakesoul -am -DskipTests
